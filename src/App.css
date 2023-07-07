@@ -20,7 +20,7 @@
 .wrapper__img{
   height: 250px;
   overflow-x: hidden;
-  background-color: white;
+  background-color: inherit;
   width: 50%;
   animation: slide .8s cubic-bezier(0.19, 1, 0.22, 1);
 }
