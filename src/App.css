@@ -6,6 +6,11 @@
   text-align: center;
   font-family: Rubik;
 }
+.wrap{
+  display: flex;
+  flex-direction: column;
+  
+}
 .wrapper{
  text-align: center;
  min-height: 150px;

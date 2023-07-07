@@ -17,7 +17,6 @@ function useCycle(images) {
             prevIndex + value >= images.length ? 0 : prevIndex + value
             )
         }
-    
         else{
             setCurrent((prevIndex) =>
             prevIndex + value < 0 ? images.length + value : prevIndex + value

@@ -24,16 +24,16 @@ function Counter() {
     vueLogo
   ]
   const [current, next] = useCycle(images)
-  const [steps, setSteps] = useState(1)
+  const [steps, setSteps] = useState(0)
  
   return (
-    <div>
+    <div className='wrap'>
       <div className='wrapper'>
         <img className='wrapper__img' src={images[current]} key={current} />
       </div>
       <div>
         <label style={{display: 'block', fontSize: '.8rem', marginBottom:'.8rem'}} >Enter Steps, then click button below</label>
-        <input type='number' value={steps} style={{marginBottom: '1rem', padding:'8px'}} onChange={e => setSteps(e.target.value)}/>
+        <input type='number' value={steps} placeholder='next...'style={{marginBottom: '1rem', padding:'8px'}} onChange={e => setSteps(e.target.value)}/>
         <span style={{marginLeft: '8px', fontSize: '.8em'}}>Max: {images.length}</span>
       </div>
       <button onClick={() => next(steps)}>Current: {current}</button>
