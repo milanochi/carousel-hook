@@ -34,7 +34,7 @@ function Counter() {
       <div>
         <label style={{display: 'block', fontSize: '.8rem', marginBottom:'.8rem'}} >Enter Steps, then click button below</label>
         <input type='number' value={steps} placeholder='next...'style={{marginBottom: '1rem', padding:'8px'}} onChange={e => setSteps(e.target.value)}/>
-        <span style={{marginLeft: '8px', fontSize: '.8em'}}>Max: {images.length}</span>
+        <span style={{marginLeft: '8px', fontSize: '.8em'}}>Max: 8</span>
       </div>
       <button onClick={() => next(steps)}>Current: {current}</button>
     </div>
