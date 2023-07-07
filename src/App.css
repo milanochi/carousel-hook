@@ -22,16 +22,21 @@
   overflow-x: hidden;
   background-color: white;
   width: 50%;
-  animation: slide .9s cubic-bezier(0.19, 1, 0.22, 1);
+  animation: slide .8s cubic-bezier(0.19, 1, 0.22, 1);
 }
 @keyframes slide {
   0%{
-    transform: translateX(100%);
+    transform: translateX(50%);
     opacity: 0;
   }
   100%{
     transform: translateX(0);
   }
+}
+input{
+  font-size: 1.1rem;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  width: 75px;
 }
 
 .logo {
