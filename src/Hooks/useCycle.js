@@ -1,19 +1,19 @@
+import { useCallback } from 'react'
 import { useState } from 'react'
-
 
 function useCycle(images) {
     const [current, setCurrent] = useState(0)
 
-    const next = (offset) => {
+    const next = useCallback((offset) => {
         let value = +offset;
 
-        if(value === null || value === undefined || value === 0) {
+        if(value === 0) {
             setCurrent((prevIndex) =>
             prevIndex + 1 === images.length ? 0 : prevIndex + 1
             )
        }
      
-       else if(value >= 0) {
+       else if(value > 0) {
             setCurrent((prevIndex) =>
             prevIndex + value >= images.length ? 0 : prevIndex + value
             )
@@ -23,7 +23,7 @@ function useCycle(images) {
             prevIndex + value < 0 ? images.length + value : prevIndex + value
             )
         }
-    }
+    }, [images])
     return [current, next]
 }
 

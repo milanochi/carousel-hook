@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback, useRef }  from 'react'
 import useCycle from './Hooks/useCycle'
 import viteLogo from '/vite.svg'
 import reactLogo from './assets/react.svg'
@@ -9,26 +9,27 @@ import teslaLogo from './assets/tesla.svg'
 import vueLogo from './assets/vue.svg'
 import facebookLogo from './assets/facebook.svg'
 import discordLogo from './assets/discord.svg'
-import { useState } from 'react'
-import { useCallback } from 'react'
 
+const images = [
+  viteLogo,
+  reactLogo,
+  googleLogo,
+  telegramLogo,
+  whatsappLogo,
+  teslaLogo,
+  discordLogo,
+  facebookLogo,
+  vueLogo
+]
 function Counter() {
-  const images = [
-    viteLogo,
-    reactLogo,
-    googleLogo,
-    telegramLogo,
-    whatsappLogo,
-    teslaLogo,
-    discordLogo,
-    facebookLogo,
-    vueLogo
-  ]
+
   const [current, next] = useCycle(images)
-  const [steps, setSteps] = useState(0)
+  const stepInputRef = useRef(null)
+  console.log(current)
+  
   const onClick = useCallback(() => {
-    next(steps)
-  }, [next])
+    next(stepInputRef.current?.value ?? 0)
+  }, [])
 
   return (
     <div className='wrap'>
@@ -37,7 +38,7 @@ function Counter() {
       </div>
       <div>
         <label style={{display: 'block', fontSize: '.8rem', marginBottom:'.8rem'}} >Enter Steps, then click button below</label>
-        <input type='number' value={steps} placeholder='next...'style={{marginBottom: '1rem', padding:'8px'}} onChange={e => setSteps(e.target.value)}/>
+        <input type='number' defaultValue={0} ref={stepInputRef} placeholder='next...'style={{marginBottom: '1rem', padding:'8px'}}/>
         <span style={{marginLeft: '8px', fontSize: '.8em'}}>Max: 8</span>
       </div>
       <button onClick={onClick}>Current: {current}</button>
@@ -45,4 +46,6 @@ function Counter() {
   )
 }
 
-export default React.memo(Counter)
+
+
+export default Counter
