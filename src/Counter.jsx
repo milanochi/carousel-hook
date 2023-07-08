@@ -29,6 +29,7 @@ function Counter() {
   const onClick = useCallback(() => {
     next(steps)
   }, [next])
+
   return (
     <div className='wrap'>
       <div className='wrapper'>
@@ -44,4 +45,4 @@ function Counter() {
   )
 }
 
-export default Counter
+export default React.memo(Counter)

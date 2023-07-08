@@ -22,7 +22,7 @@
   overflow-x: hidden;
   background-color: inherit;
   width: 50%;
-  animation: slide .8s cubic-bezier(0.19, 1, 0.22, 1);
+  animation: slide .5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 @keyframes slide {
   0%{
@@ -31,6 +31,7 @@
   }
   100%{
     transform: translateX(0);
+    opacity: 1;
   }
 }
 input{
