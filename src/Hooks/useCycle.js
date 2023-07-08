@@ -6,8 +6,8 @@ function useCycle(images) {
 
     const next = (offset) => {
         let value = +offset;
-        
-        if(!offset) {
+
+        if(value === null || value === undefined || value === 0) {
             setCurrent((prevIndex) =>
             prevIndex + 1 === images.length ? 0 : prevIndex + 1
             )
