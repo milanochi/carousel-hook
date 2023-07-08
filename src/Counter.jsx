@@ -10,6 +10,7 @@ import vueLogo from './assets/vue.svg'
 import facebookLogo from './assets/facebook.svg'
 import discordLogo from './assets/discord.svg'
 import { useState } from 'react'
+import { useCallback } from 'react'
 
 function Counter() {
   const images = [
@@ -25,7 +26,9 @@ function Counter() {
   ]
   const [current, next] = useCycle(images)
   const [steps, setSteps] = useState(0)
- 
+  const onClick = useCallback(() => {
+    next(steps)
+  }, [next])
   return (
     <div className='wrap'>
       <div className='wrapper'>
@@ -36,7 +39,7 @@ function Counter() {
         <input type='number' value={steps} placeholder='next...'style={{marginBottom: '1rem', padding:'8px'}} onChange={e => setSteps(e.target.value)}/>
         <span style={{marginLeft: '8px', fontSize: '.8em'}}>Max: 8</span>
       </div>
-      <button onClick={() => next(steps)}>Current: {current}</button>
+      <button onClick={onClick}>Current: {current}</button>
     </div>
   )
 }

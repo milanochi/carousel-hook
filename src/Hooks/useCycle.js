@@ -5,11 +5,12 @@ function useCycle(images) {
     const [current, setCurrent] = useState(0)
 
     const next = (offset) => {
-        let value = +offset
-       if(value === null || value === undefined || value === 0) {
-        setCurrent((prevIndex) =>
-        prevIndex + 1 === images.length ? 0 : prevIndex + 1
-      )
+        let value = +offset;
+        
+        if(value === null || value === undefined ) {
+            setCurrent((prevIndex) =>
+            prevIndex + 1 === images.length ? 0 : prevIndex + 1
+            )
        }
      
        else if(value >= 0) {
